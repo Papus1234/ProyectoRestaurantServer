@@ -22,9 +22,9 @@ public class JsonClientService {
 		a.put(chef);
 		a.put(chef1);
 		a.put(chef2);
-		
+		System.out.println("paso por aqui");
 		return a;
-	
+		
 	}
 		
 	

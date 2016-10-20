@@ -16,13 +16,15 @@ import org.json.JSONObject;
 import com.Objetos.Cheff;
 import com.Objetos.Cliente;
 import com.service.JsonClientService;
-@Path("/sutia")
+@Path("/hello")
 public class RestAplication {
 	JsonClientService clientService=new JsonClientService();
 	
 	@GET
+	//@Path("/getC/")
 	@Produces (MediaType.APPLICATION_JSON)
-	public JSONArray getAllTrees(){
+	public JSONArray getCheffs(){
+		System.out.println("Paso por rest ");
 		return clientService.getAllcheffs();
 	}
 	
