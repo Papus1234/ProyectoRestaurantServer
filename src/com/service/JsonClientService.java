@@ -17,12 +17,31 @@ public class JsonClientService {
 //	List<Cheff>b=new ArrayList<Cheff>();
 	
 	
-	public JSONArray getAllcheffs(){
-		JSONArray a=new JSONArray();
-		a.put(chef);
-		a.put(chef1);
-		a.put(chef2);
-		System.out.println("paso por aqui");
+	public JSONObject getAllcheffs(){
+		//JSONArray a=new JSONArray();
+		JSONObject a=new JSONObject();
+		try {
+			a.put("Chef", chef);
+//			a.put("Chef",chef1);
+//			a.put("Chef",chef2);
+//			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		System.out.println("paso por aqui");
+//		JSONObject aa =new JSONObject();
+//		for (int i =0;i<a.length();i++){
+//			
+//			try {
+//				aa.append("Chefs",a.get(i));
+//			} catch (JSONException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+//		}
 		return a;
 		
 	}

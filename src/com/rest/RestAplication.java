@@ -23,9 +23,10 @@ public class RestAplication {
 	@GET
 	//@Path("/getC/")
 	@Produces (MediaType.APPLICATION_JSON)
-	public JSONArray getCheffs(){
+	public JSONObject getCheffs(){
 		System.out.println("Paso por rest ");
 		return clientService.getAllcheffs();
+		
 	}
 	
 	//private Cheff cheff=new Cheff();
