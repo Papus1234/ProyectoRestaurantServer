@@ -1,6 +1,9 @@
 package com.rest;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -21,12 +24,13 @@ import org.json.JSONObject;
 import com.Objetos.Cheff;
 import com.Objetos.Cliente;
 import com.service.JsonClientService;
+import manejoXml.*;
 @Path("/hello")
 public class RestAplication {
 	JsonClientService clientService=new JsonClientService();
-	
+	ManagerXml manager=new ManagerXml();
 	@GET
-	//@Path("/getC/")
+	@Path("/getC/")
 	@Produces (MediaType.APPLICATION_JSON)
 //	public Map<String, String> getMap() {
 //	      Map<String, String> map = new HashMap<String, String>();
@@ -37,6 +41,28 @@ public class RestAplication {
 		System.out.println("Paso por rest ");
 		//return clientService.getAllcheffs();
 		return clientService.getAllcheffs();
+	}
+	@Path("xml")
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String guardarxml(){
+		
+		try {
+			manager.guardar("esto", "aquello");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			return "si sirve"+manager.muestraContenido("esto.xml");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+		return null;
 	}
 	
 	//private Cheff cheff=new Cheff();
